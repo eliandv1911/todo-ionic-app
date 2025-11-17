@@ -1,0 +1,29 @@
+{
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "@ionic/angular/common",
+    "@ionic/angular"
+  ],
+
+  "editor.formatOnSave": true,
+
+  "editor.codeActionsOnSave": {
+  "source.fixAll": "always",
+  "source.fixAll.eslint": "always"
+},
+"eslint.format.enable": true,
+"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "html"
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

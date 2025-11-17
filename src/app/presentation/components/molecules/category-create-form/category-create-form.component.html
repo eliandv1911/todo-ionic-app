@@ -1,0 +1,9 @@
+<ion-item>
+  <ion-input
+    [(ngModel)]="name"
+    placeholder="Nueva categoría..."
+    (keyup.enter)="submit()"
+  ></ion-input>
+
+  <ion-button slot="end" (click)="submit()" [disabled]="!name.trim()"> Agregar </ion-button>
+</ion-item>

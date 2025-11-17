@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tareas</ion-title>
+
+    @if (showCategoriesFeature()) {
+    <ion-buttons slot="end">
+      <ion-button routerLink="/categories">ir a Categorías</ion-button>
+    </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding tasks-container">
+  @if (showCategoriesFeature()) {
+
+  <app-task-filter
+    [categories]="categories()"
+    [currentValue]="currentFilterValue"
+    (change)="onFilterChange($event)"
+  ></app-task-filter>
+
+  }
+
+  <app-task-create-form
+    [categories]="categories()"
+    [showCategories]="showCategoriesFeature()"
+    (create)="addTask($event)"
+  ></app-task-create-form>
+
+  @if (tasks().length > 0) {
+  <ion-button expand="block" color="medium" fill="outline" (click)="clearAll()">
+    Limpiar todas
+  </ion-button>
+  } @if (filteredTasks().length > 0) {
+
+  <app-task-list
+    [tasks]="filteredTasks()"
+    [categories]="categories()"
+    (toggle)="toggle($event)"
+    (remove)="delete($event)"
+    (update)="updateTask($event)"
+  ></app-task-list>
+
+  } @else {
+
+  <div class="empty">No hay tareas para esta categoría.</div>
+
+  }
+</ion-content>

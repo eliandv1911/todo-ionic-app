@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menú principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding home-container">
+  <h2>Bienvenido 👋</h2>
+  <p>Selecciona qué sección deseas ver:</p>
+
+  <ion-button expand="block" routerLink="/tasks"> Ver Tareas </ion-button>
+
+  @if (showCategories()) {
+  <ion-button expand="block" routerLink="/categories"> Ver Categorías </ion-button>
+  } @else {
+  <div class="flag-warning">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <p>La sección de categorías está deshabilitada por Remote Config.</p>
+  </div>
+  }
+</ion-content>

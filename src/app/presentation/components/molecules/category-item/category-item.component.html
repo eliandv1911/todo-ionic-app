@@ -1,0 +1,25 @@
+<ion-item class="category-row">
+  @if (!editing()) {
+    <ion-label>{{ category.name }}</ion-label>
+  } @else {
+    <ion-input [(ngModel)]="editName" placeholder="Editar nombre..."></ion-input>
+  }
+
+  <div class="actions">
+    @if (!editing()) {
+      <ion-button fill="clear" size="small" color="primary" (click)="startEdit()">
+        Editar
+      </ion-button>
+    } @else {
+      <ion-button fill="clear" size="small" color="success" (click)="save()"> Guardar </ion-button>
+
+      <ion-button fill="clear" size="small" color="medium" (click)="cancel()">
+        Cancelar
+      </ion-button>
+    }
+
+    <ion-button fill="clear" size="small" color="danger" (click)="remove.emit(category)">
+      Eliminar
+    </ion-button>
+  </div>
+</ion-item>

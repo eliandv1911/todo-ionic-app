@@ -1,0 +1,17 @@
+<ion-item class="input-box">
+  <ion-input placeholder="Nueva tarea..." [(ngModel)]="title" (keyup.enter)="submit()"></ion-input>
+</ion-item>
+
+@if (showCategories) {
+  <ion-item class="input-box">
+    <ion-select placeholder="Selecciona categoría (opcional)" [(ngModel)]="catId">
+      @for (c of categories; track c.id) {
+        <ion-select-option [value]="c.id">{{ c.name }}</ion-select-option>
+      }
+    </ion-select>
+  </ion-item>
+}
+
+<ion-button expand="block" (click)="submit()" [disabled]="!title.trim()">
+  Agregar tarea
+</ion-button>

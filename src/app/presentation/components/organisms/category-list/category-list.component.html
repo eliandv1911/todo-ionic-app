@@ -1,0 +1,9 @@
+<ion-list>
+  @for (c of categories; track c.id) {
+    <app-category-item
+      [category]="c"
+      (update)="update.emit($event)"
+      (remove)="remove.emit($event)"
+    ></app-category-item>
+  }
+</ion-list>

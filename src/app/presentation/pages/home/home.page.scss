@@ -1,0 +1,27 @@
+.home-container {
+  text-align: center;
+
+  h2 {
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    color: var(--ion-color-medium);
+  }
+}
+
+.flag-warning {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 193, 7, 0.2);
+  color: var(--ion-color-warning);
+
+  ion-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,14 @@
+<ion-item class="filter-box">
+  <ion-select
+    label="Filtrar por categoría"
+    interface="popover"
+    [value]="currentValue"
+    (ionChange)="onChange($event)"
+  >
+    <ion-select-option value="__ALL__">Todas</ion-select-option>
+
+    @for (c of categories; track c.id) {
+      <ion-select-option [value]="c.id">{{ c.name }}</ion-select-option>
+    }
+  </ion-select>
+</ion-item>

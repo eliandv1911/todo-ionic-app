@@ -1,0 +1,12 @@
+<ion-list>
+  @for (t of tasks; track t.id) {
+    <app-task-item
+      [task]="t"
+      [categoryName]="getCategoryName(t.categoryId)"
+      [categories]="categories"
+      (toggle)="toggle.emit(t)"
+      (remove)="remove.emit(t)"
+      (update)="update.emit($event)"
+    ></app-task-item>
+  }
+</ion-list>

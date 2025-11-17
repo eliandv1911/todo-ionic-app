@@ -1,0 +1,67 @@
+<ion-item class="task-row">
+  <ion-checkbox
+    slot="start"
+    [checked]="task.completed"
+    (ionChange)="toggle.emit(task)"
+  ></ion-checkbox>
+
+  <ion-label>
+    @if (!editing) {
+      <div class="title" [class.completed]="task.completed">
+        {{ task.title }}
+      </div>
+
+      @if (categoryName) {
+        <small class="cat-label">{{ categoryName }}</small>
+      }
+    } @else {
+      <ion-input [(ngModel)]="editTitle" placeholder="Editar tarea..."></ion-input>
+
+      <ion-select [(ngModel)]="editCategoryId" interface="popover">
+        @for (c of categories; track c.id) {
+          <ion-select-option [value]="c.id">{{ c.name }}</ion-select-option>
+        }
+      </ion-select>
+    }
+  </ion-label>
+
+  <div class="actions" slot="end">
+    @if (!editing) {
+      <ion-button
+        fill="clear"
+        size="small"
+        color="primary"
+        (click)="startEdit(); $event.stopPropagation()"
+      >
+        Editar
+      </ion-button>
+
+      <ion-button
+        fill="clear"
+        size="small"
+        color="danger"
+        (click)="remove.emit(task); $event.stopPropagation()"
+      >
+        Eliminar
+      </ion-button>
+    } @else {
+      <ion-button
+        fill="clear"
+        size="small"
+        color="success"
+        (click)="saveEdit(); $event.stopPropagation()"
+      >
+        Guardar
+      </ion-button>
+
+      <ion-button
+        fill="clear"
+        size="small"
+        color="medium"
+        (click)="cancelEdit(); $event.stopPropagation()"
+      >
+        Cancelar
+      </ion-button>
+    }
+  </div>
+</ion-item>

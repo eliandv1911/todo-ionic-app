@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Categorías</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/tasks">ir a Tareas</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (showCategoriesFeature()) {
+
+  <app-category-create-form (create)="add($event)"></app-category-create-form>
+
+  @if (categories().length > 0) {
+
+  <app-category-list
+    [categories]="categories()"
+    (update)="update($event)"
+    (remove)="delete($event)"
+  ></app-category-list>
+
+  } @else {
+  <div class="empty">No hay categorías creadas.</div>
+  } } @else {
+
+  <div class="flag-off">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    <p>La funcionalidad de categorías está desactivada por Remote Config.</p>
+  </div>
+
+  }
+</ion-content>
